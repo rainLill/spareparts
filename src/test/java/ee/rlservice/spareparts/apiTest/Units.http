@@ -1,0 +1,28 @@
+###Get All units
+
+http://localhost:8080/settings/units
+
+
+###Get single unit
+
+http://localhost:8080/settings/units/unit?unit=2
+
+
+### Create new unit
+POST http://localhost:8080/settings/units
+Content-Type: application/json
+
+{
+  "unitName": "TestY",
+  "active": true
+}
+### Change unit
+PUT http://localhost:8080/settings/units
+Content-Type: application/json
+
+{
+  "id": 3,
+  "unitName": "tynn",
+  "active": true
+}
+
