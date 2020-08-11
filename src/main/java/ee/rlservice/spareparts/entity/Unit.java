@@ -20,11 +20,11 @@ public class Unit {
     public Unit() {
     }
 
-    public Unit(BigInteger id, String unitName, Boolean active) {
-        this.id = id;
-        this.unitName = unitName;
-        this.active = active;
-    }
+//    public Unit(BigInteger id, String unitName, Boolean active) {
+//        this.id = id;
+//        this.unitName = unitName;
+//        this.active = active;
+//    }
 
     public BigInteger getId() {
         return id;

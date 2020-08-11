@@ -5,7 +5,7 @@ http://localhost:8080/settings/units
 
 ###Get single unit
 
-http://localhost:8080/settings/units/unit?unit=2
+http://localhost:8080/settings/units/unit?unit=-1
 
 
 ### Create new unit
@@ -16,6 +16,7 @@ Content-Type: application/json
   "unitName": "TestY",
   "active": true
 }
+
 ### Change unit
 PUT http://localhost:8080/settings/units
 Content-Type: application/json

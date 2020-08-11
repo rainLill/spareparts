@@ -3,15 +3,19 @@ package ee.rlservice.spareparts.api;
 import ee.rlservice.spareparts.entity.Unit;
 import ee.rlservice.spareparts.model.UnitDTO;
 import ee.rlservice.spareparts.service.UnitService;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Positive;
 import java.math.BigInteger;
 import java.util.List;
 
 @RestController
 @RequestMapping("settings/units")
+@Validated
 public class UnitsController {
 
     UnitService unitService;
@@ -25,11 +29,8 @@ public class UnitsController {
         return unitService.getAllUnits();
     }
 
-//TODO: BigDecimal verification missing. unitId >= 1
-
     @GetMapping("unit")
-    public UnitDTO geUnit(
-            @RequestParam("unit") BigInteger unitId) {
+    public UnitDTO geUnit(@RequestParam("unit") @DecimalMin(value = "1", message = "Unit ID value must be 1 or greater") BigInteger unitId) {
         return unitService.getUnit(unitId);
     }
 
@@ -44,7 +45,7 @@ public class UnitsController {
     }
 
     @DeleteMapping()
-    public List<UnitDTO> deleteUnit(@RequestParam ("unitId") BigInteger unitId) {
+    public List<UnitDTO> deleteUnit(@RequestParam("unitId") BigInteger unitId) {
         return unitService.deleteUnit(unitId);
     }
 }
